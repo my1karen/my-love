@@ -28,7 +28,6 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   padding:10px;
   transition:0.3s;
   cursor:pointer;
-  position:relative;
 }
 .card:hover{transform:scale(1.05);}
 .card img{
@@ -39,13 +38,11 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 }
 .caption{margin-top:8px;font-size:14px;font-weight:600;}
 .description{
-  display:none;
   margin-top:8px;
   background:rgba(0,0,0,0.3);
   padding:8px;
   border-radius:10px;
   font-size:14px;
-  transition:0.3s;
 }
 .bottom-buttons{
   display:flex;
@@ -79,25 +76,25 @@ button{
 <h1>My Queen Karen 👑</h1>
 
 <div class="gallery">
-  <div class="card" onclick="toggleDescription(this)">
+  <div class="card">
     <img src="images/img1.jpg" alt="First Date">
     <div class="caption">Our First Date 🌹</div>
     <div class="description">The evening we met was magical, full of smiles and laughter ✨</div>
   </div>
 
-  <div class="card" onclick="toggleDescription(this)">
+  <div class="card">
     <img src="images/img2.jpg" alt="Beautiful Smile">
     <div class="caption">Your Beautiful Smile 💕</div>
     <div class="description">Your smile lights up my day and makes everything perfect 😍</div>
   </div>
 
-  <div class="card" onclick="toggleDescription(this)">
+  <div class="card">
     <img src="images/img3.jpg" alt="Trip Together">
     <div class="caption">Our Trip Together ✈️</div>
     <div class="description">Traveling with you is always an adventure full of love and laughter 🌴</div>
   </div>
 
-  <div class="card" onclick="toggleDescription(this)">
+  <div class="card">
     <img src="images/img4.jpg" alt="Favorite Memory">
     <div class="caption">My Favorite Memory ❤️</div>
     <div class="description">Every moment with you is a treasure that I will cherish forever 💖</div>
@@ -109,21 +106,16 @@ button{
   <button class="sweet" onclick="toggleSweetWords()">💌 Sweet Words</button>
 </div>
 
-<audio id="voice" src="YOUR-VOICE-FILE.mp3"></audio>
+<audio id="voice" src="voice.mp3"></audio>
 
 <div id="sweetWords">
-  Karen, you are my sunshine ☀️, my heart ❤️, my everything 💕. Every day with you feels like a dream come true ✨
+  Karen, you are my sunshine ☀️, my heart ❤️, my everything 💕. Every day with you feels like a dream come true ✨ I can't wait to make more beautiful memories with you 💖
 </div>
 
 <script>
-function toggleDescription(card){
-  const desc = card.querySelector('.description');
-  desc.style.display = (desc.style.display === "block") ? "none" : "block";
-}
-
 function playVoice(){
   const audio = document.getElementById('voice');
-  audio.play();
+  audio.play().catch(e => alert("Make sure the audio file 'voice.mp3' موجود."));
 }
 
 function toggleSweetWords(){
