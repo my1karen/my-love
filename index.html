@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,7 @@ body{
   padding:20px;
 }
 
-h1{
-  font-family:'Playfair Display', serif;
-  margin-bottom:20px;
-}
+h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 
 .gallery{
   display:grid;
@@ -38,9 +35,7 @@ h1{
   transition:0.3s;
 }
 
-.card:hover{
-  transform:scale(1.05);
-}
+.card:hover{transform:scale(1.05);}
 
 .card img{
   width:100%;
@@ -49,49 +44,17 @@ h1{
   border-radius:12px;
 }
 
-.caption{
-  margin-top:8px;
-  font-size:13px;
-}
+.caption{margin-top:8px;font-size:13px;}
 
-/* Popup */
-.popup{
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
+.description{
   display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
+  margin-top:8px;
+  background:rgba(0,0,0,0.3);
+  padding:8px;
+  border-radius:10px;
+  font-size:14px;
 }
 
-.popup-content{
-  background:white;
-  color:#ff4d6d;
-  padding:25px;
-  border-radius:20px;
-  max-width:300px;
-  animation:zoom 0.3s;
-}
-
-@keyframes zoom{
-  from{transform:scale(0.7);}
-  to{transform:scale(1);}
-}
-
-.close{
-  margin-top:15px;
-  background:#ff6f91;
-  color:white;
-  border:none;
-  padding:10px 20px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* buttons */
 .bottom-buttons{
   display:flex;
   justify-content:space-around;
@@ -109,91 +72,97 @@ button{
   margin:5px;
 }
 
-.sweet{
-  background:#ff6f91;
-  color:white;
-}
-
-.voice{
-  background:#ffd700;
-  color:black;
-}
+.sweet{background:#ff6f91;color:white;}
+.voice{background:#ffd700;color:black;}
 
 #sweetWords{
   display:none;
   margin-top:20px;
   font-size:16px;
   background:rgba(0,0,0,0.3);
-  padding:15px;
+  padding:10px;
   border-radius:12px;
+}
+
+/* Hearts */
+.heart{
+  position:absolute;
+  bottom:-10px;
+  font-size:20px;
+  animation:float 6s linear infinite;
+  color:#ff4e8a;
+}
+
+@keyframes float{
+  0%{transform:translateY(0) rotate(0);opacity:1;}
+  100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
 }
 </style>
 </head>
-
 <body>
 
 <h1>Our Special Day Memories 🌸</h1>
 
 <div class="gallery">
-
-  <div class="card" onclick="openPopup('اليوم ده كان من أحلى أيام حياتي عشان كنتي معايا ❤️')">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="images/img1.jpg">
-    <div class="caption">Morning Walk 🌞</div>
+    <div class="caption">Our First Date 🌹</div>
+    <div class="description">We enjoyed a beautiful morning together 🥰</div>
   </div>
-
-  <div class="card" onclick="openPopup('ضحكتك وقت الأكل كانت أحلى من الأكل نفسه 😍')">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="images/img2.jpg">
-    <div class="caption">Lunch Together 🍽</div>
+    <div class="caption">Your Beautiful Smile 💕</div>
+    <div class="description">Your smile always brightens my day 😄</div>
   </div>
-
-  <div class="card" onclick="openPopup('الشمس كانت جميلة، بس مش أجمل منك 🌅❤️')">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="images/img3.jpg">
-    <div class="caption">Evening Sunset 🌅</div>
+    <div class="caption">Our Trip Together ✈️</div>
+    <div class="description">That trip was unforgettable and fun ❤️</div>
   </div>
-
-  <div class="card" onclick="openPopup('الليل معاكِ بيبقى أمان وراحة وطمأنينة 🌙')">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="images/img4.jpg">
-    <div class="caption">Night Stars 🌙</div>
+    <div class="caption">My Favorite Memory ❤️</div>
+    <div class="description">Every moment with you is my favorite 💖</div>
   </div>
-
 </div>
 
+<!-- الزرين تحت الصفحة -->
 <div class="bottom-buttons">
-  <button class="sweet" onclick="showSweetWords()">دوسي هنا 💌</button>
-  <button class="voice" onclick="playVoice()">دوسي هنا 🎧</button>
+  <button class="sweet" onclick="showSweetWords()">Sweet Words 💌</button>
+  <button class="voice" onclick="playVoice()">Play Recording 🎵</button>
 </div>
 
+<!-- نص الكلام الحلو -->
 <div id="sweetWords">
-  بحبك أكتر من أي كلام ممكن يتقال، وجودك في حياتي نعمة، وضحكتك بتنسيني الدنيا كلها ❤️🥺
+  You make every day brighter and my heart happier 💖 I love every moment with you 🌸
 </div>
 
+<!-- ملف الصوت -->
 <audio id="voice" src="love.mp3"></audio>
 
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <div id="popupText"></div>
-    <button class="close" onclick="closePopup()">إغلاق</button>
-  </div>
-</div>
-
 <script>
-function openPopup(text){
-  document.getElementById("popupText").innerText = text;
-  document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-  document.getElementById("popup").style.display="none";
+function toggleDescription(card){
+  const desc = card.querySelector('.description');
+  desc.style.display = (desc.style.display === "block") ? "none" : "block";
 }
 
 function showSweetWords(){
-  const box = document.getElementById('sweetWords');
-  box.style.display = box.style.display === "block" ? "none" : "block";
+  document.getElementById('sweetWords').style.display = "block";
 }
 
 function playVoice(){
   document.getElementById('voice').play();
 }
+
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,500);
 </script>
 
 </body>
