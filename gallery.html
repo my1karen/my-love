@@ -4,85 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Memories ❤️</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:'Poppins', sans-serif;
+  font-family:'Poppins',sans-serif;
   background:linear-gradient(135deg,#ff4e8a,#ff99ac);
   color:white;
   text-align:center;
   padding:20px;
 }
-
-h1{
-  font-family:'Playfair Display', serif;
-  margin-bottom:20px;
-}
-
+h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 .gallery{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:15px;
   max-width:430px;
   margin:auto;
+  margin-bottom:30px;
 }
-
 .card{
   background:rgba(255,255,255,0.2);
   border-radius:15px;
   padding:10px;
   transition:0.3s;
 }
-
-.card:hover{
-  transform:scale(1.05);
-}
-
+.card:hover{transform:scale(1.05);}
 .card img{
   width:100%;
   height:150px;
   object-fit:cover;
   border-radius:12px;
 }
+.caption{margin-top:8px;font-size:13px;}
 
-.caption{
-  font-size:13px;
-  margin-top:8px;
+/* Bottom buttons */
+.bottom-buttons{
+  display:flex;
+  justify-content:space-around;
+  margin-top:20px;
 }
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:14px;
+}
+.voice{background:#ffd700;color:black;}
+.sweet{background:#ff4e8a;color:white;}
 </style>
 </head>
 <body>
 
-<h1>Our Beautiful Memories ❤️</h1>
+<h1>My Queen Karen 👑</h1>
 
 <div class="gallery">
+  <a href="desc1.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">Our First Date 🌹</div></a>
+  <a href="desc2.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">Your Beautiful Smile 💕</div></a>
+  <a href="desc3.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">Our Trip Together ✈️</div></a>
+  <a href="desc4.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">My Favorite Memory ❤️</div></a>
+</div>
 
-  <!-- غير الصور هنا 👇 -->
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x300" alt="">
-    <div class="caption">Our First Date 🌸</div>
-  </div>
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x300" alt="">
-    <div class="caption">Your Birthday 🎂</div>
-  </div>
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x300" alt="">
-    <div class="caption">Our Trip Together ✈️</div>
-  </div>
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x300" alt="">
-    <div class="caption">My Favorite Smile ❤️</div>
-  </div>
-
+<!-- الزرين تحت كل الصور -->
+<div class="bottom-buttons">
+  <button class="voice" onclick="window.location.href='voice.html'">Play My Voice 🎵</button>
+  <button class="sweet" onclick="window.location.href='sweet.html'">Sweet Words 💌</button>
 </div>
 
 </body>
