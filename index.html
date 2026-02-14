@@ -4,45 +4,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-  font-family:Arial,sans-serif;
+  font-family:'Poppins', sans-serif;
   background:linear-gradient(135deg,#1a1a1a,#3b0a2a);
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
   min-height:100vh;
+  overflow:hidden;
   text-align:center;
   padding:20px;
 }
-h1{font-size:48px; color:#ffd700; margin-bottom:20px;}
-p{margin-bottom:20px; line-height:1.6;}
-input{
-  padding:12px;
-  width:220px;
-  border-radius:25px;
-  border:none;
-  text-align:center;
-  font-size:16px;
-  margin-bottom:15px;
+
+.screen{
+  width:100%;
+  max-width:400px;
 }
-button{
-  padding:12px 25px;
+
+h1{
+  font-family:'Great Vibes', cursive;
+  font-size:42px;
+  margin-bottom:20px;
+  color:#ffd700;
+}
+
+p{
+  max-width:100%;
+  margin-bottom:20px;
+  line-height:1.5;
+}
+
+input{
+  padding:10px;
+  width:100%;
   border:none;
-  border-radius:25px;
+  border-radius:20px;
+  text-align:center;
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
   background:#ffd700;
   color:black;
   font-weight:bold;
   cursor:pointer;
   font-size:16px;
+  transition:0.3s;
 }
+
 button:hover{transform:scale(1.05);}
+
+@media(max-width:400px){
+  h1{font-size:32px;}
+}
 </style>
 </head>
 <body>
 
-<div>
+<div class="screen">
   <h1>For Karen ❤️</h1>
   <p>
     She is my heart,<br>
@@ -59,9 +89,9 @@ button:hover{transform:scale(1.05);}
 function unlock(){
   const answer = document.getElementById("answer").value.trim().toLowerCase();
   if(answer === "karen"){
-    window.location.href = "page-two.html"; // ينقلك على صفحة الصور
+    window.location.href = "page-two.html"; // صفحة الصور
   } else {
-    alert("غلط 😌 جربي تاني");
+    alert("Nope 😌 Try again.");
   }
 }
 </script>
