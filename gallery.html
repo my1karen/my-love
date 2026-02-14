@@ -27,6 +27,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   border-radius:15px;
   padding:10px;
   transition:0.3s;
+  cursor:pointer;
 }
 .card:hover{transform:scale(1.05);}
 .card img{
@@ -37,7 +38,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 }
 .caption{margin-top:8px;font-size:13px;}
 
-/* Bottom buttons */
+/* الزرين تحت الصور */
 .bottom-buttons{
   display:flex;
   justify-content:space-around;
@@ -60,10 +61,22 @@ button{
 <h1>My Queen Karen 👑</h1>
 
 <div class="gallery">
-  <a href="desc1.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">Our First Date 🌹</div></a>
-  <a href="desc2.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">Your Beautiful Smile 💕</div></a>
-  <a href="desc3.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">Our Trip Together ✈️</div></a>
-  <a href="desc4.html" class="card"><img src="https://via.placeholder.com/300x300"><div class="caption">My Favorite Memory ❤️</div></a>
+  <div class="card" onclick="window.location.href='desc1.html'">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Our First Date 🌹</div>
+  </div>
+  <div class="card" onclick="window.location.href='desc2.html'">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Your Beautiful Smile 💕</div>
+  </div>
+  <div class="card" onclick="window.location.href='desc3.html'">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Our Trip Together ✈️</div>
+  </div>
+  <div class="card" onclick="window.location.href='desc4.html'">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">My Favorite Memory ❤️</div>
+  </div>
 </div>
 
 <!-- الزرين تحت كل الصور -->
