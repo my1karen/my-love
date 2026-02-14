@@ -28,6 +28,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   padding:10px;
   transition:0.3s;
   cursor:pointer;
+  position:relative;
 }
 .card:hover{transform:scale(1.05);}
 .card img{
@@ -36,7 +37,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   object-fit:cover;
   border-radius:12px;
 }
-.caption{margin-top:8px;font-size:13px;}
+.caption{margin-top:8px;font-size:14px;font-weight:600;}
 .description{
   display:none;
   margin-top:8px;
@@ -44,21 +45,22 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   padding:8px;
   border-radius:10px;
   font-size:14px;
+  transition:0.3s;
 }
 .bottom-buttons{
   display:flex;
-  justify-content:space-around;
-  margin-top:20px;
+  justify-content:center;
+  gap:20px;
   flex-wrap:wrap;
+  margin-top:20px;
 }
 button{
-  padding:15px 25px;
+  padding:12px 25px;
   border:none;
   border-radius:25px;
   cursor:pointer;
   font-weight:600;
   font-size:16px;
-  margin:5px;
 }
 .voice{background:#ffd700;color:black;}
 .sweet{background:#ff4e8a;color:white;}
@@ -78,35 +80,39 @@ button{
 
 <div class="gallery">
   <div class="card" onclick="toggleDescription(this)">
-    <img src="images/img1.jpg">
+    <img src="images/img1.jpg" alt="First Date">
     <div class="caption">Our First Date 🌹</div>
-    <div class="description">It was a magical evening under the stars ✨</div>
+    <div class="description">The evening we met was magical, full of smiles and laughter ✨</div>
   </div>
+
   <div class="card" onclick="toggleDescription(this)">
-    <img src="images/img2.jpg">
+    <img src="images/img2.jpg" alt="Beautiful Smile">
     <div class="caption">Your Beautiful Smile 💕</div>
-    <div class="description">Your smile brightens my every day 😍</div>
+    <div class="description">Your smile lights up my day and makes everything perfect 😍</div>
   </div>
+
   <div class="card" onclick="toggleDescription(this)">
-    <img src="images/img3.jpg">
+    <img src="images/img3.jpg" alt="Trip Together">
     <div class="caption">Our Trip Together ✈️</div>
-    <div class="description">Exploring the world with you was unforgettable 🌴</div>
+    <div class="description">Traveling with you is always an adventure full of love and laughter 🌴</div>
   </div>
+
   <div class="card" onclick="toggleDescription(this)">
-    <img src="images/img4.jpg">
+    <img src="images/img4.jpg" alt="Favorite Memory">
     <div class="caption">My Favorite Memory ❤️</div>
-    <div class="description">Every moment with you is my favorite memory 💖</div>
+    <div class="description">Every moment with you is a treasure that I will cherish forever 💖</div>
   </div>
 </div>
 
 <div class="bottom-buttons">
-  <button class="voice" onclick="playVoice()">Play My Voice 🎵</button>
-  <button class="sweet" onclick="showSweetWords()">Sweet Words 💌</button>
+  <button class="voice" onclick="playVoice()">🎵 Play My Voice</button>
+  <button class="sweet" onclick="toggleSweetWords()">💌 Sweet Words</button>
 </div>
 
 <audio id="voice" src="YOUR-VOICE-FILE.mp3"></audio>
+
 <div id="sweetWords">
-  You are my sunshine, my love, my everything ❤️ I am so lucky to have you in my life 💕
+  Karen, you are my sunshine ☀️, my heart ❤️, my everything 💕. Every day with you feels like a dream come true ✨
 </div>
 
 <script>
@@ -120,9 +126,9 @@ function playVoice(){
   audio.play();
 }
 
-function showSweetWords(){
+function toggleSweetWords(){
   const div = document.getElementById('sweetWords');
-  div.style.display = "block";
+  div.style.display = (div.style.display === "block") ? "none" : "block";
 }
 </script>
 
