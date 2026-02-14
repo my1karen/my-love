@@ -20,7 +20,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   gap:15px;
   max-width:430px;
   margin:auto;
-  margin-bottom:30px;
+  margin-bottom:40px; /* زيادة المسافة للزرين */
 }
 .card{
   background:rgba(255,255,255,0.2);
@@ -28,6 +28,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   padding:10px;
   transition:0.3s;
   cursor:pointer;
+  position:relative;
 }
 .card:hover{transform:scale(1.05);}
 .card img{
@@ -38,7 +39,17 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 }
 .caption{margin-top:8px;font-size:13px;}
 
-/* الزرين تحت الصور */
+/* وصف اليوم مخفي في البداية */
+.description{
+  display:none;
+  margin-top:8px;
+  background:rgba(0,0,0,0.3);
+  padding:8px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+/* الزرين تحت الصفحة */
 .bottom-buttons{
   display:flex;
   justify-content:space-around;
@@ -62,29 +73,40 @@ button{
 
 <!-- Gallery Images -->
 <div class="gallery">
-  <div class="card" onclick="window.location.href='desc1.html'">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="https://via.placeholder.com/300x300">
     <div class="caption">Our First Date 🌹</div>
+    <div class="description">This is our first magical date ❤️</div>
   </div>
-  <div class="card" onclick="window.location.href='desc2.html'">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="https://via.placeholder.com/300x300">
     <div class="caption">Your Beautiful Smile 💕</div>
+    <div class="description">Your smile lights up my day 😍</div>
   </div>
-  <div class="card" onclick="window.location.href='desc3.html'">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="https://via.placeholder.com/300x300">
     <div class="caption">Our Trip Together ✈️</div>
+    <div class="description">Remember our amazing trip together 🌴</div>
   </div>
-  <div class="card" onclick="window.location.href='desc4.html'">
+  <div class="card" onclick="toggleDescription(this)">
     <img src="https://via.placeholder.com/300x300">
     <div class="caption">My Favorite Memory ❤️</div>
+    <div class="description">My favorite memory with you 💖</div>
   </div>
 </div>
 
-<!-- الزرين تحت كل الصور -->
+<!-- الزرين تحت الصفحة -->
 <div class="bottom-buttons">
   <button class="voice" onclick="window.location.href='voice.html'">Play My Voice 🎵</button>
   <button class="sweet" onclick="window.location.href='sweet.html'">Sweet Words 💌</button>
 </div>
+
+<script>
+function toggleDescription(card){
+  const desc = card.querySelector('.description');
+  desc.style.display = (desc.style.display === "block") ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
