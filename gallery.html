@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Memories ❤️</title>
+<title>Day Memories ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#ff4e8a,#ff99ac);
+  background:linear-gradient(135deg,#ff9aa2,#ff6f91);
   color:white;
   text-align:center;
   padding:20px;
@@ -26,8 +26,8 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   background:rgba(255,255,255,0.2);
   border-radius:15px;
   padding:10px;
-  transition:0.3s;
   cursor:pointer;
+  transition:0.3s;
 }
 .card:hover{transform:scale(1.05);}
 .card img{
@@ -36,8 +36,9 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   object-fit:cover;
   border-radius:12px;
 }
-.caption{margin-top:8px;font-size:14px;font-weight:600;}
+.caption{margin-top:8px;font-size:13px;}
 .description{
+  display:none;
   margin-top:8px;
   background:rgba(0,0,0,0.3);
   padding:8px;
@@ -46,21 +47,21 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 }
 .bottom-buttons{
   display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
+  justify-content:space-around;
   margin-top:20px;
+  flex-wrap:wrap;
 }
 button{
-  padding:12px 25px;
+  padding:15px 25px;
   border:none;
   border-radius:25px;
   cursor:pointer;
   font-weight:600;
   font-size:16px;
+  margin:5px;
 }
+.sweet{background:#ff6f91;color:white;}
 .voice{background:#ffd700;color:black;}
-.sweet{background:#ff4e8a;color:white;}
 #sweetWords{
   display:none;
   margin-top:20px;
@@ -73,54 +74,57 @@ button{
 </head>
 <body>
 
-<h1>My Queen Karen 👑</h1>
+<h1>Our Special Day Memories 🌸</h1>
 
 <div class="gallery">
-  <div class="card">
-    <img src="images/img1.jpg" alt="First Date">
-    <div class="caption">Our First Date 🌹</div>
-    <div class="description">The evening we met was magical, full of smiles and laughter ✨</div>
+  <div class="card" onclick="toggleDescription(this)">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Morning Walk 🌞</div>
+    <div class="description">We enjoyed a beautiful morning together 🥰</div>
   </div>
-
-  <div class="card">
-    <img src="images/img2.jpg" alt="Beautiful Smile">
-    <div class="caption">Your Beautiful Smile 💕</div>
-    <div class="description">Your smile lights up my day and makes everything perfect 😍</div>
+  <div class="card" onclick="toggleDescription(this)">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Lunch Together 🍽️</div>
+    <div class="description">Our lunch was delicious and full of laughter 😄</div>
   </div>
-
-  <div class="card">
-    <img src="images/img3.jpg" alt="Trip Together">
-    <div class="caption">Our Trip Together ✈️</div>
-    <div class="description">Traveling with you is always an adventure full of love and laughter 🌴</div>
+  <div class="card" onclick="toggleDescription(this)">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Evening Sunset 🌅</div>
+    <div class="description">Watching the sunset with you was magical ✨</div>
   </div>
-
-  <div class="card">
-    <img src="images/img4.jpg" alt="Favorite Memory">
-    <div class="caption">My Favorite Memory ❤️</div>
-    <div class="description">Every moment with you is a treasure that I will cherish forever 💖</div>
+  <div class="card" onclick="toggleDescription(this)">
+    <img src="https://via.placeholder.com/300x300">
+    <div class="caption">Night Stars 🌙</div>
+    <div class="description">Ending the day under the stars with you ❤️</div>
   </div>
 </div>
 
+<!-- الزرين تحت الصفحة -->
 <div class="bottom-buttons">
-  <button class="voice" onclick="playVoice()">🎵 Play My Voice</button>
-  <button class="sweet" onclick="toggleSweetWords()">💌 Sweet Words</button>
+  <button class="sweet" onclick="showSweetWords()">Sweet Words 💌</button>
+  <button class="voice" onclick="playVoice()">Play Recording 🎵</button>
 </div>
 
-<audio id="voice" src="voice.mp3"></audio>
-
+<!-- نص الكلام الحلو -->
 <div id="sweetWords">
-  Karen, you are my sunshine ☀️, my heart ❤️, my everything 💕. Every day with you feels like a dream come true ✨ I can't wait to make more beautiful memories with you 💖
+  You make every day brighter and my heart happier 💖 I love every moment with you 🌸
 </div>
+
+<!-- ملف الصوت -->
+<audio id="voice" src="YOUR-VOICE-FILE.mp3"></audio>
 
 <script>
-function playVoice(){
-  const audio = document.getElementById('voice');
-  audio.play().catch(e => alert("Make sure the audio file 'voice.mp3' موجود."));
+function toggleDescription(card){
+  const desc = card.querySelector('.description');
+  desc.style.display = (desc.style.display === "block") ? "none" : "block";
 }
 
-function toggleSweetWords(){
-  const div = document.getElementById('sweetWords');
-  div.style.display = (div.style.display === "block") ? "none" : "block";
+function showSweetWords(){
+  document.getElementById('sweetWords').style.display = "block";
+}
+
+function playVoice(){
+  document.getElementById('voice').play();
 }
 </script>
 
