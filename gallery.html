@@ -28,7 +28,6 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   padding:10px;
   transition:0.3s;
   cursor:pointer;
-  position:relative;
 }
 .card:hover{transform:scale(1.05);}
 .card img{
@@ -50,6 +49,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   display:flex;
   justify-content:space-around;
   margin-top:20px;
+  flex-wrap:wrap;
 }
 button{
   padding:15px 25px;
@@ -58,6 +58,7 @@ button{
   cursor:pointer;
   font-weight:600;
   font-size:16px;
+  margin:5px;
 }
 .voice{background:#ffd700;color:black;}
 .sweet{background:#ff4e8a;color:white;}
@@ -77,34 +78,32 @@ button{
 
 <div class="gallery">
   <div class="card" onclick="toggleDescription(this)">
-    <img src="https://via.placeholder.com/300x300">
+    <img src="images/img1.jpg">
     <div class="caption">Our First Date 🌹</div>
-    <div class="description">It was such a magical evening under the stars ✨</div>
+    <div class="description">It was a magical evening under the stars ✨</div>
   </div>
   <div class="card" onclick="toggleDescription(this)">
-    <img src="https://via.placeholder.com/300x300">
+    <img src="images/img2.jpg">
     <div class="caption">Your Beautiful Smile 💕</div>
-    <div class="description">Your smile always brightens my day 😍</div>
+    <div class="description">Your smile brightens my every day 😍</div>
   </div>
   <div class="card" onclick="toggleDescription(this)">
-    <img src="https://via.placeholder.com/300x300">
+    <img src="images/img3.jpg">
     <div class="caption">Our Trip Together ✈️</div>
     <div class="description">Exploring the world with you was unforgettable 🌴</div>
   </div>
   <div class="card" onclick="toggleDescription(this)">
-    <img src="https://via.placeholder.com/300x300">
+    <img src="images/img4.jpg">
     <div class="caption">My Favorite Memory ❤️</div>
     <div class="description">Every moment with you is my favorite memory 💖</div>
   </div>
 </div>
 
-<!-- الزرين تحت الصفحة -->
 <div class="bottom-buttons">
   <button class="voice" onclick="playVoice()">Play My Voice 🎵</button>
   <button class="sweet" onclick="showSweetWords()">Sweet Words 💌</button>
 </div>
 
-<!-- الصوت والكلام الحلو -->
 <audio id="voice" src="YOUR-VOICE-FILE.mp3"></audio>
 <div id="sweetWords">
   You are my sunshine, my love, my everything ❤️ I am so lucky to have you in my life 💕
@@ -115,10 +114,12 @@ function toggleDescription(card){
   const desc = card.querySelector('.description');
   desc.style.display = (desc.style.display === "block") ? "none" : "block";
 }
+
 function playVoice(){
   const audio = document.getElementById('voice');
   audio.play();
 }
+
 function showSweetWords(){
   const div = document.getElementById('sweetWords');
   div.style.display = "block";
