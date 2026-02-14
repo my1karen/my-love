@@ -23,21 +23,19 @@ body{
 }
 
 .screen{
-  position:absolute;
   width:100%;
-  height:100%;
+  max-width:500px;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:column;
   padding:20px;
-  transition:1s;
+  animation:fade 1.5s;
 }
 
-.hidden{
-  opacity:0;
-  pointer-events:none;
-  transform:scale(1.1);
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 h1{
@@ -50,63 +48,34 @@ h1{
 p{
   max-width:400px;
   margin-bottom:20px;
+  line-height:1.6;
 }
 
 input{
-  padding:10px;
-  width:220px;
+  padding:12px;
+  width:230px;
   border:none;
-  border-radius:20px;
+  border-radius:25px;
   text-align:center;
   margin-bottom:15px;
+  font-size:16px;
 }
 
 button{
-  padding:10px 20px;
+  padding:12px 25px;
   border:none;
-  border-radius:20px;
+  border-radius:25px;
   background:#ffd700;
   color:black;
   font-weight:bold;
   cursor:pointer;
-}
-
-.gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  max-width:430px;
-}
-
-.card{
-  background:rgba(255,215,0,0.1);
-  border:2px solid #ffd700;
-  border-radius:15px;
-  padding:10px;
-  box-shadow:0 0 15px rgba(255,215,0,0.4);
-  transition:0.4s;
-}
-
-.card:hover{
-  transform:scale(1.05);
-}
-
-.card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.caption{
-  margin-top:8px;
-  font-size:13px;
-}
-
-#typeText{
   font-size:16px;
-  margin-bottom:20px;
-  min-height:50px;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px rgba(255,215,0,0.7);
 }
 
 /* Hearts */
@@ -122,81 +91,33 @@ button{
   0%{transform:translateY(0) rotate(0);opacity:1;}
   100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
 }
-
-@media(max-width:400px){
-  h1{font-size:32px;}
-}
 </style>
 </head>
+
 <body>
 
-<!-- Puzzle Screen -->
-<div class="screen" id="puzzle">
+<div class="screen">
   <h1>For Karen ❤️</h1>
+
   <p>
-    She is my heart,  
-    my happiness,  
-    my forever.  
+    She is my heart,<br>
+    my happiness,<br>
+    my forever.<br>
     Who is she?
   </p>
+
   <input type="text" id="answer" placeholder="Type her name">
+
   <button onclick="unlock()">Unlock 👑</button>
 </div>
 
-<!-- Gallery Screen -->
-<div class="screen hidden" id="galleryScreen">
-  <h1>My Queen Karen 👑</h1>
-  <div id="typeText"></div>
-
-  <div class="gallery">
-
-    <!-- غير الصور هنا 👇 -->
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300">
-      <div class="caption">Our First Date 🌹</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300">
-      <div class="caption">Your Beautiful Smile 💕</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300">
-      <div class="caption">Our Trip Together ✈️</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300">
-      <div class="caption">My Favorite Memory ❤️</div>
-    </div>
-
-  </div>
-</div>
-
-<audio id="music" src="YOUR-MUSIC-LINK.mp3"></audio>
-
 <script>
 function unlock(){
-  const answer=document.getElementById("answer").value.trim().toLowerCase();
-  if(answer==="karen"){
-    document.getElementById("puzzle").classList.add("hidden");
-    document.getElementById("galleryScreen").classList.remove("hidden");
-    document.getElementById("music").play();
-    typeEffect();
-  }else{
-    alert("Nope 😌 Try again.");
-  }
-}
-
-const text="Karen, you are the most beautiful thing that ever happened to me. I love you more than words can explain ❤️";
-let i=0;
-function typeEffect(){
-  if(i<text.length){
-    document.getElementById("typeText").innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(typeEffect,40);
+  const answer = document.getElementById("answer").value.trim().toLowerCase();
+  if(answer === "karen"){
+    window.location.href = "index.html";
+  } else {
+    alert("غلط 😌 جربي تاني");
   }
 }
 
