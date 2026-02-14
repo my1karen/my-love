@@ -22,7 +22,7 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:15px;
-  max-width:430px;
+  max-width:800px; /* أعرض الصور أكبر */
   margin:auto;
   margin-bottom:40px;
 }
@@ -39,8 +39,8 @@ h1{font-family:'Playfair Display', serif; margin-bottom:20px;}
 
 .card img{
   width:100%;
-  height:150px;
-  object-fit:cover;
+  height:auto; /* الصور بحجمها الطبيعي */
+  object-fit:contain;
   border-radius:12px;
 }
 
