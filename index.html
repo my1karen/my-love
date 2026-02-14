@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Love Story ❤️</title>
 
-<!-- Romantic Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -74,11 +73,16 @@ button:hover{
   background:#ffe6ec;
 }
 
+/* IMPORTANT FIX */
 .gallery{
   display:none;
   margin-top:20px;
   grid-template-columns:1fr 1fr;
   gap:15px;
+}
+
+.gallery.show{
+  display:grid;
   animation:fadeIn 1.5s ease-in-out;
 }
 
@@ -121,10 +125,6 @@ button:hover{
   0%{transform:translateY(0) rotate(0);opacity:1;}
   100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
 }
-
-@media(max-width:400px){
-  h1{font-size:22px;}
-}
 </style>
 </head>
 <body>
@@ -141,8 +141,6 @@ button:hover{
   <button onclick="checkAnswer()">Unlock Our Memories ❤️</button>
 
   <div class="gallery" id="gallery">
-    
-    <!-- 👇 Replace image links and captions -->
 
     <div class="card">
       <img src="https://via.placeholder.com/300x300" alt="">
@@ -171,7 +169,7 @@ button:hover{
 function checkAnswer(){
   const answer=document.getElementById("answer").value.trim().toLowerCase();
   if(answer==="footsteps"){
-    document.getElementById("gallery").style.display="grid";
+    document.getElementById("gallery").classList.add("show");
     alert("Correct my love ❤️");
   }else{
     alert("Try again 😉");
