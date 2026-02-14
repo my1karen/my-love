@@ -12,13 +12,12 @@
 
 body{
   font-family:'Poppins', sans-serif;
-  background:linear-gradient(135deg,#1a1a1a,#3b0a2a);
+  background:linear-gradient(135deg,#ff9aa2,#ff6f91); /* خلفية رومانسية */
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
   min-height:100vh;
-  overflow:hidden;
   text-align:center;
   padding:20px;
 }
@@ -26,35 +25,40 @@ body{
 .screen{
   width:100%;
   max-width:400px;
+  background:rgba(255,255,255,0.1);
+  border-radius:25px;
+  padding:30px 20px;
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
 h1{
   font-family:'Great Vibes', cursive;
-  font-size:42px;
+  font-size:50px;
   margin-bottom:20px;
   color:#ffd700;
+  text-shadow:0 0 10px #ff6f91;
 }
 
 p{
-  max-width:100%;
-  margin-bottom:20px;
-  line-height:1.5;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:25px;
 }
 
 input{
-  padding:10px;
+  padding:12px;
   width:100%;
   border:none;
-  border-radius:20px;
+  border-radius:25px;
   text-align:center;
-  margin-bottom:15px;
   font-size:16px;
+  margin-bottom:20px;
 }
 
 button{
-  padding:10px 20px;
+  padding:12px 25px;
   border:none;
-  border-radius:20px;
+  border-radius:25px;
   background:#ffd700;
   color:black;
   font-weight:bold;
@@ -63,10 +67,10 @@ button{
   transition:0.3s;
 }
 
-button:hover{transform:scale(1.05);}
-
-@media(max-width:400px){
-  h1{font-size:32px;}
+button:hover{
+  transform:scale(1.05);
+  background:#ff6f91;
+  color:white;
 }
 </style>
 </head>
