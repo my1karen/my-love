@@ -3,99 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start ❤️</title>
+<title>Love Puzzle 💌</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Poppins', sans-serif;
-  background:linear-gradient(135deg,#ff9aa2,#ff6f91); /* خلفية رومانسية */
-  color:white;
+  background:linear-gradient(135deg,#ff4e8a,#ff99ac);
   display:flex;
   justify-content:center;
   align-items:center;
   min-height:100vh;
+  color:white;
   text-align:center;
   padding:20px;
 }
 
-.screen{
+.container{
+  max-width:420px;
   width:100%;
-  max-width:400px;
-  background:rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(15px);
   border-radius:25px;
-  padding:30px 20px;
-  box-shadow:0 0 20px rgba(0,0,0,0.3);
+  padding:30px;
 }
 
 h1{
-  font-family:'Great Vibes', cursive;
-  font-size:50px;
-  margin-bottom:20px;
-  color:#ffd700;
-  text-shadow:0 0 10px #ff6f91;
+  font-family:'Playfair Display', serif;
+  margin-bottom:15px;
 }
 
 p{
-  font-size:18px;
-  line-height:1.6;
-  margin-bottom:25px;
-}
-
-input{
-  padding:12px;
-  width:100%;
-  border:none;
-  border-radius:25px;
-  text-align:center;
-  font-size:16px;
   margin-bottom:20px;
 }
 
-button{
-  padding:12px 25px;
+input{
+  padding:10px;
+  width:80%;
   border:none;
-  border-radius:25px;
-  background:#ffd700;
-  color:black;
-  font-weight:bold;
+  border-radius:20px;
+  margin-bottom:15px;
+  text-align:center;
+}
+
+button{
+  background:white;
+  color:#ff4e8a;
+  border:none;
+  padding:10px 20px;
+  border-radius:20px;
   cursor:pointer;
-  font-size:16px;
-  transition:0.3s;
+  font-weight:600;
 }
 
 button:hover{
-  transform:scale(1.05);
-  background:#ff6f91;
-  color:white;
+  background:#ffe6ec;
 }
 </style>
 </head>
 <body>
 
-<div class="screen">
-  <h1>For Karen ❤️</h1>
+<div class="container">
+  <h1>Love Riddle 💕</h1>
   <p>
-    She is my heart,<br>
-    my happiness,<br>
-    my forever.<br>
-    Who is she?
+    حاجه بحسها حلم وبحبها 
+    دخلت حياتي فأجه وبقت احلي حاجه فيها
+    جاوبي بقا ايه هي؟
   </p>
-  <input type="text" id="answer" placeholder="Type her name">
+
+  <input type="text" id="answer" placeholder="Type her name here">
   <br>
-  <button onclick="unlock()">Unlock 👑</button>
+  <button onclick="checkAnswer()">Unlock ❤️</button>
 </div>
 
 <script>
-function unlock(){
+function checkAnswer(){
   const answer = document.getElementById("answer").value.trim().toLowerCase();
+  
   if(answer === "karen"){
-    window.location.href = "page-two.html"; // صفحة الصور
+    window.location.href = "page-two.html";
   } else {
-    alert("Nope 😌 Try again.");
+    alert("Think again my love 😉");
   }
 }
 </script>
