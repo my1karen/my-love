@@ -3,64 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karen ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>Start ❤️</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:'Poppins', sans-serif;
+  font-family:Arial,sans-serif;
   background:linear-gradient(135deg,#1a1a1a,#3b0a2a);
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
   min-height:100vh;
-  overflow:hidden;
   text-align:center;
-}
-
-.screen{
-  width:100%;
-  max-width:500px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
   padding:20px;
-  animation:fade 1.5s;
 }
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-h1{
-  font-family:'Great Vibes', cursive;
-  font-size:42px;
-  margin-bottom:20px;
-  color:#ffd700;
-}
-
-p{
-  max-width:400px;
-  margin-bottom:20px;
-  line-height:1.6;
-}
-
+h1{font-size:48px; color:#ffd700; margin-bottom:20px;}
+p{margin-bottom:20px; line-height:1.6;}
 input{
   padding:12px;
-  width:230px;
-  border:none;
+  width:220px;
   border-radius:25px;
+  border:none;
   text-align:center;
-  margin-bottom:15px;
   font-size:16px;
+  margin-bottom:15px;
 }
-
 button{
   padding:12px 25px;
   border:none;
@@ -70,44 +36,22 @@ button{
   font-weight:bold;
   cursor:pointer;
   font-size:16px;
-  transition:0.3s;
 }
-
-button:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px rgba(255,215,0,0.7);
-}
-
-/* Hearts */
-.heart{
-  position:absolute;
-  bottom:-10px;
-  font-size:20px;
-  animation:float 6s linear infinite;
-  color:#ff4e8a;
-}
-
-@keyframes float{
-  0%{transform:translateY(0) rotate(0);opacity:1;}
-  100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
-}
+button:hover{transform:scale(1.05);}
 </style>
 </head>
-
 <body>
 
-<div class="screen">
+<div>
   <h1>For Karen ❤️</h1>
-
   <p>
     She is my heart,<br>
     my happiness,<br>
     my forever.<br>
     Who is she?
   </p>
-
   <input type="text" id="answer" placeholder="Type her name">
-
+  <br>
   <button onclick="unlock()">Unlock 👑</button>
 </div>
 
@@ -115,21 +59,11 @@ button:hover{
 function unlock(){
   const answer = document.getElementById("answer").value.trim().toLowerCase();
   if(answer === "karen"){
-    window.location.href = "index.html";
+    window.location.href = "index.html"; // ينقلك على صفحة الصور
   } else {
     alert("غلط 😌 جربي تاني");
   }
 }
-
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML="❤️";
-  heart.style.left=Math.random()*100+"vw";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-}
-setInterval(createHeart,500);
 </script>
 
 </body>
