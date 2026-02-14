@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Love Story ❤️</title>
+<title>Love Puzzle 💌</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Poppins', sans-serif;
@@ -24,28 +20,24 @@ body{
   color:white;
   text-align:center;
   padding:20px;
-  overflow-x:hidden;
 }
 
 .container{
-  max-width:430px;
+  max-width:420px;
   width:100%;
   background:rgba(255,255,255,0.15);
   backdrop-filter:blur(15px);
   border-radius:25px;
-  padding:25px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.2);
+  padding:30px;
 }
 
 h1{
   font-family:'Playfair Display', serif;
-  font-size:28px;
   margin-bottom:15px;
 }
 
 p{
-  margin-bottom:15px;
-  font-size:15px;
+  margin-bottom:20px;
 }
 
 input{
@@ -53,9 +45,8 @@ input{
   width:80%;
   border:none;
   border-radius:20px;
-  margin-bottom:10px;
+  margin-bottom:15px;
   text-align:center;
-  font-size:14px;
 }
 
 button{
@@ -64,128 +55,41 @@ button{
   border:none;
   padding:10px 20px;
   border-radius:20px;
-  font-size:15px;
   cursor:pointer;
-  transition:0.3s;
+  font-weight:600;
 }
 
 button:hover{
   background:#ffe6ec;
-}
-
-/* IMPORTANT FIX */
-.gallery{
-  display:none;
-  margin-top:20px;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-.gallery.show{
-  display:grid;
-  animation:fadeIn 1.5s ease-in-out;
-}
-
-.card{
-  background:rgba(255,255,255,0.2);
-  border-radius:15px;
-  padding:10px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:scale(1.05);
-}
-
-.card img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:12px;
-}
-
-.caption{
-  font-size:13px;
-  margin-top:8px;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-.heart{
-  position:fixed;
-  bottom:-10px;
-  font-size:20px;
-  animation:float 6s linear infinite;
-}
-
-@keyframes float{
-  0%{transform:translateY(0) rotate(0);opacity:1;}
-  100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Love Puzzle 💌</h1>
+  <h1>Love Riddle 💕</h1>
   <p>
-    The more you take, the more you leave behind.  
-    What am I?
+    She is my happiness,  
+    my heart, my everything.  
+    Without her, I am incomplete.  
+    Who is she?
   </p>
 
-  <input type="text" id="answer" placeholder="Type your answer here">
+  <input type="text" id="answer" placeholder="Type her name here">
   <br>
-  <button onclick="checkAnswer()">Unlock Our Memories ❤️</button>
-
-  <div class="gallery" id="gallery">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300" alt="">
-      <div class="caption">Our First Date 🌸</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300" alt="">
-      <div class="caption">Your Birthday Celebration 🎂</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300" alt="">
-      <div class="caption">Our Beautiful Trip ✈️</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x300" alt="">
-      <div class="caption">Our Favorite Memory ❤️</div>
-    </div>
-
-  </div>
+  <button onclick="checkAnswer()">Unlock ❤️</button>
 </div>
 
 <script>
 function checkAnswer(){
-  const answer=document.getElementById("answer").value.trim().toLowerCase();
-  if(answer==="footsteps"){
-    document.getElementById("gallery").classList.add("show");
-    alert("Correct my love ❤️");
-  }else{
-    alert("Try again 😉");
+  const answer = document.getElementById("answer").value.trim().toLowerCase();
+  
+  if(answer === "karen"){
+    window.location.href = "gallery.html";
+  } else {
+    alert("Think again my love 😉");
   }
 }
-
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML="❤️";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(Math.random()*20+10)+"px";
-  document.body.appendChild(heart);
-  setTimeout(()=>{heart.remove();},6000);
-}
-setInterval(createHeart,500);
 </script>
 
 </body>
