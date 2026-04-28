@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>❤️ كتاب حبنا ❤️</title><style>
 body{
   margin:0;
@@ -14,8 +15,10 @@ body{
 }
 
 .book{
-  width:340px;
-  height:440px;
+  width:90vw;
+  max-width:360px;
+  height:75vh;
+  max-height:500px;
   perspective:2500px;
   position:relative;
 }
@@ -30,28 +33,26 @@ body{
   transform-origin:left;
   transition:0.5s;
   backface-visibility:hidden;
-  padding:20px;
-}
-
-.page::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:linear-gradient(to right, rgba(0,0,0,0.2), transparent);
-  opacity:0;
-  transition:0.3s;
+  padding:15px;
+  box-sizing:border-box;
 }
 
 .page img{
   width:100%;
+  height:60%;
+  object-fit:cover;
   border-radius:10px;
 }
 
-.page h2, .page p{
+.page h2{
   text-align:center;
+  font-size:18px;
+  margin:10px 0;
+}
+
+.page p{
+  text-align:center;
+  font-size:14px;
 }
 
 .cover{
@@ -61,13 +62,13 @@ body{
   align-items:center;
   background:#ff4d6d;
   color:white;
-  font-size:22px;
+  font-size:20px;
 }
 
 .heart{
   position:absolute;
   color:#ff4d6d;
-  font-size:20px;
+  font-size:18px;
   animation:float 4s infinite ease-in-out;
 }
 
@@ -79,22 +80,15 @@ body{
 
 </style></head><body><div class="book" id="book">  <div class="page cover">
     <h2>❤️ ليكي انتي ❤️</h2>
-    <p>كل صفحة هنا حكاية بينا</p>
   </div>  <div class="page">
     <h2>البداية ❤️</h2>
     <img src="img1.jpg">
-    <p>اول يوم شوفنا بعض وكان احلى صدفة</p>
   </div>  <div class="page">
     <h2>يوم جميل 🌹</h2>
     <img src="img2.jpg">
-    <p>ضحكتك كانت سبب سعادتي</p>
   </div>  <div class="page">
     <h2>بحبك 💕</h2>
     <img src="img3.jpg">
-    <p>كل يوم معاكي احلى</p>
-  </div>  <div class="page">
-    <h2>مفاجأة 🎁</h2>
-    <p>انا بحبك اوي ومش متخيل حياتي من غيرك ❤️</p>
   </div></div><audio id="flipSound" src="flip.mp3"></audio>
 
 <script>
