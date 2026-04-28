@@ -1,68 +1,183 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كتاب حبنا ❤️</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="book-container">
-        <div class="book">
-            <!-- الغلاف -->
-            <div class="page cover-page">
-                <div class="cover-content">
-                    <h1>كتاب حبنا</h1>
-                    <h2>لـ [اسم حبيبتك]</h2>
-                    <p>من قلبي إليكِ ❤️</p>
-                </div>
-            </div>
+<meta charset="UTF-8">
+<title>❤️ كتاب حبنا ❤️</title><style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial;
+  overflow:hidden;
+}
 
-            <!-- الصفحات -->
-            <div class="page">
-                <div class="page-content">
-                    <img src="https://via.placeholder.com/300x400/FF69B4/FFFFFF?text=1-يناير" alt="اليوم الأول">
-                    <div class="day-content">
-                        <h3>1 يناير 2024</h3>
-                        <p>اليوم اللي قابلتك فيه أول مرة... قلبي وقف!</p>
-                    </div>
-                </div>
-            </div>
+.book{
+  width:340px;
+  height:440px;
+  perspective:2500px;
+  position:relative;
+}
 
-            <div class="page">
-                <div class="page-content">
-                    <img src="https://via.placeholder.com/300x400/FF1493/FFFFFF?text=14-فبراير" alt="عيد الحب">
-                    <div class="day-content">
-                        <h3>14 فبراير 2024</h3>
-                        <p>عيد الحب معاكي أحلى حاجة في الدنيا ❤️</p>
-                    </div>
-                </div>
-            </div>
+.page{
+  width:100%;
+  height:100%;
+  position:absolute;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+  transform-origin:left;
+  transition:0.5s;
+  backface-visibility:hidden;
+  padding:20px;
+}
 
-            <div class="page">
-                <div class="page-content">
-                    <img src="https://via.placeholder.com/300x400/FFB6C1/000000?text=اليوم+الثالث" alt="اليوم الثالث">
-                    <div class="day-content">
-                        <h3>اليوم الثالث</h3>
-                        <p>كل يوم معاكي قصة حب جديدة...</p>
-                    </div>
-                </div>
-            </div>
+.page::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+  opacity:0;
+  transition:0.3s;
+}
 
-            <!-- صفحة أخيرة -->
-            <div class="page last-page">
-                <div class="page-content">
-                    <h2>وإلى الأبد معاً ❤️</h2>
-                    <p>أحبك أكتر من الكلام</p>
-                </div>
-            </div>
-        </div>
-    </div>
+.page img{
+  width:100%;
+  border-radius:10px;
+}
 
-    <audio id="pageFlipSound" preload="auto">
-        <source src="https://www.soundjay.com/misc/sounds/book/page-flip-1.mp3" type="audio/mpeg">
-    </audio>
+.page h2, .page p{
+  text-align:center;
+}
 
-    <script src="script.js"></script>
-</body>
+.cover{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:#ff4d6d;
+  color:white;
+  font-size:22px;
+}
+
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  font-size:20px;
+  animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);opacity:0}
+  50%{opacity:1}
+  100%{transform:translateY(-100px);opacity:0}
+}
+
+</style></head><body><div class="book" id="book">  <div class="page cover">
+    <h2>❤️ ليكي انتي ❤️</h2>
+    <p>كل صفحة هنا حكاية بينا</p>
+  </div>  <div class="page">
+    <h2>البداية ❤️</h2>
+    <img src="img1.jpg">
+    <p>اول يوم شوفنا بعض وكان احلى صدفة</p>
+  </div>  <div class="page">
+    <h2>يوم جميل 🌹</h2>
+    <img src="img2.jpg">
+    <p>ضحكتك كانت سبب سعادتي</p>
+  </div>  <div class="page">
+    <h2>بحبك 💕</h2>
+    <img src="img3.jpg">
+    <p>كل يوم معاكي احلى</p>
+  </div>  <div class="page">
+    <h2>مفاجأة 🎁</h2>
+    <p>انا بحبك اوي ومش متخيل حياتي من غيرك ❤️</p>
+  </div></div><audio id="flipSound" src="flip.mp3"></audio>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+const sound = document.getElementById('flipSound');
+let startX = 0;
+let isDragging = false;
+
+function updatePages(){
+  pages.forEach((page,i)=>{
+    if(i < current){
+      page.style.transform = 'rotateY(-180deg)';
+    } else {
+      page.style.transform = 'rotateY(0deg)';
+    }
+  });
+}
+
+const book = document.getElementById('book');
+
+book.addEventListener('touchstart', (e)=>{
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+book.addEventListener('touchmove', (e)=>{
+  if(!isDragging) return;
+
+  let currentX = e.touches[0].clientX;
+  let diff = startX - currentX;
+  let rotate = diff / 2;
+
+  if(current < pages.length){
+    let page = pages[current];
+    page.style.transition = '0s';
+    page.style.transform = `rotateY(${-rotate}deg)`;
+    page.style.boxShadow = `${-rotate}px 10px 30px rgba(0,0,0,0.7)`;
+  }
+});
+
+book.addEventListener('touchend', (e)=>{
+  isDragging = false;
+
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+
+  if(diff > 80 && current < pages.length){
+    current++;
+    sound.play();
+    vibrate();
+    createHeart();
+  }
+
+  if(diff < -80 && current > 0){
+    current--;
+    sound.play();
+    vibrate();
+  }
+
+  pages.forEach(p => p.style.transition = '0.5s');
+  updatePages();
+});
+
+function vibrate(){
+  if(navigator.vibrate){
+    navigator.vibrate(30);
+  }
+}
+
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = '❤️';
+  heart.style.left = Math.random()*100 + '%';
+  heart.style.top = '80%';
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },4000);
+}
+
+updatePages();
+</script></body>
 </html>
