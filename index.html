@@ -4,377 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كتاب حبنا ❤️</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* صفحة كلمة السر */
-        .login-page {
-            background: rgba(255,255,255,0.95);
-            padding: 50px 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 400px;
-            animation: heartBeat 2s infinite;
-        }
-
-        @keyframes heartBeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .login-page h1 {
-            color: #e91e63;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            border: 3px solid #ff6b9d;
-            border-radius: 50px;
-            text-align: center;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: #e91e63;
-            transform: scale(1.02);
-        }
-
-        .enter-btn {
-            background: linear-gradient(45deg, #ff6b9d, #e91e63);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(233,30,99,0.4);
-        }
-
-        .enter-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(233,30,99,0.6);
-        }
-
-        /* صفحة الكتاب */
-        .book-container {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .book {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 400px;
-            perspective: 2000px;
-        }
-
-        .book-page {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            transform-origin: left;
-            transition: transform 1s;
-            padding: 40px;
-            box-sizing: border-box;
-            overflow: hidden;
-            backface-visibility: hidden;
-        }
-
-        .page-1 {
-            transform: rotateY(0deg);
-            z-index: 10;
-        }
-
-        .page-2 {
-            transform: rotateY(-180deg);
-            z-index: 9;
-        }
-
-        .page-content {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .love-message {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            margin: 20px 0;
-            transition: transform 0.3s;
-        }
-
-        .photo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-buttons {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-btn {
-            background: linear-gradient(45deg, #ff6b9d, #e91e63);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(233,30,99,0.4);
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(233,30,99,0.6);
-        }
-
-        .nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .hearts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .heart {
-            position: absolute;
-            color: #ff6b9d;
-            font-size: 20px;
-            animation: float 6s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .book {
-                width: 90vw;
-                height: 70vh;
-            }
-            
-            .love-message {
-                font-size: 20px;
-            }
-            
-            .photo {
-                width: 200px;
-                height: 200px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- صفحة كلمة السر -->
-    <div class="login-page" id="loginPage">
-        <h1>🔒 كتاب حبنا ❤️</h1>
-        <p style="color: #666; margin-bottom: 20px; font-size: 18px;">اكتبي كلمة السر عشان تفتحي كتاب حبنا</p>
-        <input type="password" class="password-input" id="passwordInput" placeholder="كلمة السر هنا... 💕">
-        <br><br>
-        <button class="enter-btn" onclick="checkPassword()">دخول الكتاب 📖</button>
-    </div>
-
-    <!-- صفحة الكتاب -->
-    <div class="book-container" id="bookContainer">
-        <div class="hearts" id="hearts"></div>
-        
+    <div class="book-container">
         <div class="book">
-            <!-- الصفحة الأولى -->
-            <div class="book-page page-1" id="page1">
+            <!-- الغلاف -->
+            <div class="page cover-page">
+                <div class="cover-content">
+                    <h1>كتاب حبنا</h1>
+                    <h2>لـ [اسم حبيبتك]</h2>
+                    <p>من قلبي إليكِ ❤️</p>
+                </div>
+            </div>
+
+            <!-- الصفحات -->
+            <div class="page">
                 <div class="page-content">
-                    <div class="love-message">
-                        🌹 يا حبيبتي الغالية 🌹<br><br>
-                        ده كتاب حبنا اللي مليان ذكرياتنا الحلوة ❤️<br>
-                        اقلبي الصفحة وشوفي الصور اللي بتفتكرك بأجمل لحظاتنا مع بعض 💕
+                    <img src="https://via.placeholder.com/300x400/FF69B4/FFFFFF?text=1-يناير" alt="اليوم الأول">
+                    <div class="day-content">
+                        <h3>1 يناير 2024</h3>
+                        <p>اليوم اللي قابلتك فيه أول مرة... قلبي وقف!</p>
                     </div>
                 </div>
             </div>
 
-            <!-- الصفحة التانية -->
-            <div class="book-page page-2" id="page2">
+            <div class="page">
                 <div class="page-content">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7838b8c47?w=400" alt="صورة حب" class="photo">
-                    <div class="love-message">
-                        أول صورة لينا مع بعض 💖<br>
-                        اللحظة اللي قلبي اتخبط فيها من أول نظرة ليكي ✨
+                    <img src="https://via.placeholder.com/300x400/FF1493/FFFFFF?text=14-فبراير" alt="عيد الحب">
+                    <div class="day-content">
+                        <h3>14 فبراير 2024</h3>
+                        <p>عيد الحب معاكي أحلى حاجة في الدنيا ❤️</p>
                     </div>
                 </div>
             </div>
 
-            <!-- الصفحة التالتة -->
-            <div class="book-page page-1" id="page3" style="display: none;">
+            <div class="page">
                 <div class="page-content">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="صورة حب" class="photo">
-                    <div class="love-message">
-                        ليلة النجوم اللي قضيناها سوا 🌌<br>
-                        وعد مني ليكي: هفضل جنبك في كل لحظة 😘
+                    <img src="https://via.placeholder.com/300x400/FFB6C1/000000?text=اليوم+الثالث" alt="اليوم الثالث">
+                    <div class="day-content">
+                        <h3>اليوم الثالث</h3>
+                        <p>كل يوم معاكي قصة حب جديدة...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- الصفحة الرابعة -->
-            <div class="book-page page-2" id="page4" style="display: none;">
+            <!-- صفحة أخيرة -->
+            <div class="page last-page">
                 <div class="page-content">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400" alt="صورة حب" class="photo">
-                    <div class="love-message">
-                        ضحكتك دي أحلى موسيقى في حياتي 🎶<br>
-                        بحبك أكتر من الكلام يقدر يوصفها 💝
-                    </div>
+                    <h2>وإلى الأبد معاً ❤️</h2>
+                    <p>أحبك أكتر من الكلام</p>
                 </div>
             </div>
-        </div>
-
-        <div class="nav-buttons">
-            <button class="nav-btn" id="prevBtn" onclick="prevPage()" disabled>السابق ←</button>
-            <button class="nav-btn" id="nextBtn" onclick="nextPage()">التالي →</button>
         </div>
     </div>
 
-    <script>
-        let currentPage = 1;
-        const password = "حبيبتي"; // غير كلمة السر دي
+    <audio id="pageFlipSound" preload="auto">
+        <source src="https://www.soundjay.com/misc/sounds/book/page-flip-1.mp3" type="audio/mpeg">
+    </audio>
 
-        function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
-            if (input === password) {
-                document.getElementById('loginPage').style.display = 'none';
-                document.getElementById('bookContainer').style.display = 'block';
-                createHearts();
-                setTimeout(() => {
-                    document.title = "كتاب حبنا ❤️";
-                }, 500);
-            } else {
-                alert('❌ كلمة السر غلط! جربي تاني 💕');
-                document.getElementById('passwordInput').value = '';
-                document.getElementById('passwordInput').focus();
-            }
-        }
-
-        function nextPage() {
-            if (currentPage < 4) {
-                currentPage++;
-                updatePage();
-            }
-        }
-
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                updatePage();
-            }
-        }
-
-        function updatePage() {
-            // إخفاء كل الصفحات
-            document.querySelectorAll('.book-page').forEach(page => {
-                page.style.display = 'none';
-            });
-
-            // إظهار الصفحة الحالية
-            const currentPageElement = document.getElementById(`page${currentPage}`);
-            if (currentPageElement) {
-                currentPageElement.style.display = 'block';
-            }
-
-            // تحديث أزرار التنقل
-            document.getElementById('prevBtn').disabled = currentPage === 1;
-            document.getElementById('nextBtn').disabled = currentPage === 4;
-        }
-
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '💖';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                heartsContainer.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 6000);
-            }, 300);
-        }
-
-        // الدخول بالضغط على Enter
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
-
-        // منع الضغط F12 وغيره
-        document.addEventListener('keydown', function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
-                e.preventDefault();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
